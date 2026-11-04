@@ -36,7 +36,11 @@ def main() -> int:
             facts["checks"]["read_failure_feedback"] = False
         except FileNotFoundError:
             outcomes = terminal.runtime.nodes(terminal.user_id, "PiToolOutcome")
-            facts["checks"]["read_failure_feedback"] = outcomes[-1].content["status"] == "DENIED_OR_FAILED"
+            facts["checks"]["read_failure_feedback"] = any(
+                node.content.get("target") == "missing.txt"
+                and node.content.get("status") == "DENIED_OR_FAILED"
+                for node in outcomes
+            )
         try:
             terminal.propose_write("new.txt", "new evidence")
             facts["checks"]["observe_blocks_write"] = False
