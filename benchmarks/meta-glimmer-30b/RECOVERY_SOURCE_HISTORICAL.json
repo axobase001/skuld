@@ -1,0 +1,13 @@
+{
+  "original_product_reference": "a5fe958c461505f34693f8786f4ccf30aa779d42",
+  "product_import_reference": "6ee91a8f51f5035a43c097bb417b8695c7d46018",
+  "historical_git_object_verified": false,
+  "source_archive": "CP24_P2_REPAIR_AND_PRELOCK_20261101.zip/source/CP24_P2_SOURCE_A5FE958.zip",
+  "snapshot_crc_checked_files": 612,
+  "snapshot_crc_mismatches": 0,
+  "runner_only_change": [
+    "experiments/cp24/cp24_runner.py:expected_product_head",
+    "experiments/cp24/run_matrix.py:expected_product_head"
+  ],
+  "recovery_head": "077315dae516e01bb1e3f54528eac23c6ee22d62"
+}

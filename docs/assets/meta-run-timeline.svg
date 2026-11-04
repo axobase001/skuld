@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">Meta Muse Glimmer 30B validation timeline</title>
+  <desc id="desc">A schematic timeline of the 30-day run: start at 1,500 euros, process restart and unfinished complaint on day 10, model call cap and continuation on day 28, completed run at 1,713.02 euros on day 30.</desc>
+  <rect width="1200" height="330" rx="16" fill="#faf6ef"/>
+  <text x="56" y="52" fill="#312b27" font-family="Georgia,serif" font-size="29">One run. A continuing history.</text>
+  <path d="M89 168h1024" stroke="#d7c9b9" stroke-width="8" stroke-linecap="round"/>
+  <path d="M89 168h1024" stroke="#a7372f" stroke-width="3" stroke-linecap="round"/>
+  <g fill="#a7372f"><circle cx="99" cy="168" r="10"/><circle cx="401" cy="168" r="10"/><circle cx="994" cy="168" r="10"/><circle cx="1110" cy="168" r="10"/></g>
+  <g font-family="Segoe UI,Arial,sans-serif" fill="#312b27" font-size="17">
+    <text x="62" y="117">DAY 1</text><text x="62" y="220">€1,500 start</text>
+    <text x="347" y="117">DAY 10</text><text x="330" y="220">Process restart</text><text x="330" y="246" fill="#796d63" font-size="15">Complaint carried forward</text>
+    <text x="927" y="117">DAY 28</text><text x="897" y="220">180-call cap reached</text><text x="897" y="246" fill="#796d63" font-size="15">Verified checkpoint continued</text>
+    <text x="1066" y="117">DAY 30</text><text x="1052" y="220">€1,713.02</text>
+  </g>
+  <text x="56" y="303" fill="#85786e" font-family="Segoe UI,Arial,sans-serif" font-size="14">Schematic milestones; intermediate balances are not plotted.</text>
+</svg>

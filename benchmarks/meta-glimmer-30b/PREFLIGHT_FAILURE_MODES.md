@@ -1,0 +1,1 @@
+R2 risks before implementation: wrong run ID or reuse of old state; 240 calls still insufficient; tokenizer BatchEncoding undercount; backend identity drift; restart duplicate side effects; Drive checkpoint loss; final score unfinalized; unknown local generation retry; archive credential leak. Each must remain visible in E2E and formal evidence.

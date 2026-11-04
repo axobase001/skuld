@@ -1,0 +1,16 @@
+{
+  "captured_utc": "2026-11-04T04:49:49.162666+00:00",
+  "host": "cd642c85d4c0",
+  "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+  "python_executable": "/usr/bin/python3",
+  "gpu_query": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887 MiB, 97251 MiB, 580.82.07",
+  "cuda_nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Aug_20_01:58:59_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0",
+  "memory": "               total        used        free      shared  buff/cache   available\nMem:     189928587264  2823974912 184304201728     3153920  4322959360 187104612352\nSwap:              0           0           0\n",
+  "disk_content": "Filesystem        1B-blocks        Used    Available Use% Mounted on\noverlay        253055008768 45784674304 207253557248  19% /\n",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.22.0",
+  "huggingface_hub": "1.33.0",
+  "source_bundle_sha256": "3f584cf80c45a4e82de234864a1b3ebae5ceafba49afb039e8d0b0e061774612",
+  "model_repo": "meta-models/Muse-Glimmer-30B",
+  "model_revision": "cec94fcfd6512f2cfe708138c32533b346ea4f69"
+}

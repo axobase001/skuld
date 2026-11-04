@@ -1,0 +1,29 @@
+# Local subject state, personal imports, credentials, and generated output
+.terminal-runtime/
+.terminal-accounts/
+.terminal-e2e/
+.terminal-e2e-accounts/
+.skuld-terminal-secrets/
+.env
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.dpapi
+*.pem
+*.key
+*.zip
+*.bundle
+
+# Build and interpreter output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+terminal_app/harness_pi/dist/
+out/
+logs/
+var/

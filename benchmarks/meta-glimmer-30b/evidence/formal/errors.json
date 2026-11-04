@@ -1,0 +1,32 @@
+[
+  {
+    "turn": 167,
+    "day": 28,
+    "type": "ProviderFailure",
+    "message": "BUDGET_CALL_LIMIT"
+  },
+  {
+    "turn": 168,
+    "day": 28,
+    "type": "ProviderFailure",
+    "message": "BUDGET_CALL_LIMIT"
+  },
+  {
+    "turn": 169,
+    "day": 28,
+    "type": "ProviderFailure",
+    "message": "BUDGET_CALL_LIMIT"
+  },
+  {
+    "turn": 170,
+    "day": 28,
+    "type": "ProviderFailure",
+    "message": "BUDGET_CALL_LIMIT"
+  },
+  {
+    "turn": 171,
+    "day": 28,
+    "type": "ProviderFailure",
+    "message": "BUDGET_CALL_LIMIT"
+  }
+]

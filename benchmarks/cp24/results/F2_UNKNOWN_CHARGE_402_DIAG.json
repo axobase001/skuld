@@ -1,0 +1,20 @@
+{
+  "kind": "F2_UNKNOWN_CHARGE_ACCOUNT_RECONCILIATION_PRELIMINARY",
+  "at_utc": "2026-11-03T03:03:32.137666+00:00",
+  "trajectory": "CP24_CONFIRM_F2-M31F_seed240105",
+  "unknown_call_index": 402,
+  "unknown_started_at": "2026-11-03T02:57:52.615186+00:00",
+  "unknown_finished_at": "2026-11-03T02:58:41.204139+00:00",
+  "unknown_error": "JSONDecodeError",
+  "reserved_usd": 0.28800000000000003,
+  "preceding_returned_index": 401,
+  "preceding_returned_charge_estimate_usd": 0.0164733525,
+  "wallet_before_preceding_call_usd": 7.027632400000016,
+  "expected_available_after_preceding_call_usd": 7.011159047500016,
+  "official_available_now_usd": 7.0111590480000245,
+  "difference_usd": 5.000089231543825e-10,
+  "official_total_credits_usd": 376,
+  "official_total_usage_usd": 368.988840952,
+  "official_key_limit_remaining_usd": 43.776746383,
+  "interpretation": "No incremental account debit beyond preceding RETURNED call observed at this timestamp; generation-level charge remains unresolved and the unknown-call reservation is retained. No new paid calls authorized by this diagnostic."
+}

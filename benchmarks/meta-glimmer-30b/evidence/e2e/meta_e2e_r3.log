@@ -1,0 +1,10 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+/content/venvs/skuld-meta/lib/python3.12/site-packages/fastmcp/server/auth/providers/jwt.py:10: AuthlibDeprecationWarning: authlib.jose module is deprecated, please use joserfc instead.
+It will be compatible before version 2.0.0.
+  from authlib.jose import JsonWebKey, JsonWebToken
+PROGRESS META_E2E_R3_S-EVO_seed240101 day 1 turn 1 calls 1
+PROGRESS META_E2E_R3_S-EVO_seed240101 day 1 turn 2 calls 2
+PROGRESS META_E2E_R3_S-EVO_seed240101 day 1 turn 3 calls 3
+PROGRESS META_E2E_R3_S-EVO_seed240101 day 1 turn 4 calls 4
+PROGRESS META_E2E_R3_S-EVO_seed240101 day 1 turn 5 calls 5
+RUN_EXIT META_E2E_R3_S-EVO_seed240101 e2e_turn_cap day 1 calls 5

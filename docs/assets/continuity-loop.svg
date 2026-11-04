@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">The Skuld continuity loop</title>
+  <desc id="desc">Observe, update world state, predict, compare with reality, act within authorization, read consequences, and return to observation.</desc>
+  <rect width="1200" height="330" rx="16" fill="#faf6ef"/>
+  <g font-family="Segoe UI,Arial,sans-serif" font-size="17" text-anchor="middle">
+    <g fill="#fffdf9" stroke="#d9cec1" stroke-width="2">
+      <rect x="34" y="102" width="164" height="94" rx="10"/><rect x="226" y="102" width="164" height="94" rx="10"/>
+      <rect x="418" y="102" width="164" height="94" rx="10"/><rect x="610" y="102" width="164" height="94" rx="10"/>
+      <rect x="802" y="102" width="164" height="94" rx="10"/><rect x="994" y="102" width="172" height="94" rx="10"/>
+    </g>
+    <g fill="#312b27">
+      <text x="116" y="146">Observe</text><text x="116" y="170" fill="#867a70" font-size="13">sourced evidence</text>
+      <text x="308" y="141">Update</text><text x="308" y="165">world state</text>
+      <text x="500" y="146">Predict</text><text x="500" y="170" fill="#867a70" font-size="13">what may happen</text>
+      <text x="692" y="141">Compare</text><text x="692" y="165">with reality</text>
+      <text x="884" y="141">Act within</text><text x="884" y="165">authorization</text>
+      <text x="1080" y="141">Read the</text><text x="1080" y="165">consequences</text>
+    </g>
+  </g>
+  <g stroke="#ae3830" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M198 149h25m167 0h25m167 0h25m167 0h25m167 0h25"/>
+    <path d="m216 143 7 6-7 6m192-12 7 6-7 6m192-12 7 6-7 6m192-12 7 6-7 6m192-12 7 6-7 6"/>
+    <path d="M1080 204v75H116V204" stroke-dasharray="5 7"/>
+    <path d="m110 212 6-8 6 8"/>
+  </g>
+  <text x="600" y="270" fill="#8b4c43" font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" font-size="15">Every outcome becomes new evidence</text>
+</svg>

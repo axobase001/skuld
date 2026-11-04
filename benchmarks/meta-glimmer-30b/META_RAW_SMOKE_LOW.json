@@ -1,0 +1,63 @@
+{
+  "at_utc": "2026-11-04T05:12:24.535311+00:00",
+  "request": {
+    "model": "muse-glimmer",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Reasoning strength: low. Return exactly one JSON object with keys action and reason. No markdown."
+      },
+      {
+        "role": "user",
+        "content": "Choose action wait for a vending machine with no stock data. Give a short reason."
+      }
+    ],
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "max_tokens": 512,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "http_status": 200,
+  "response": {
+    "id": "bf5d02af23c6474c8ccf43fc9c31df04",
+    "object": "chat.completion",
+    "created": 1793769148,
+    "model": "muse-glimmer",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"action\":\"wait\",\"reason\":\"No stock data available to make an informed selection, so waiting is safest.\"}",
+          "reasoning_content": "Choose action wait for a vending machine with no stock data. Give a short reason.\n\nReturn exactly one JSON object with keys action and reason. No markdown.\n\nWe need output JSON object. Probably action: wait? Or choose action? Might be action: \"wait\". Reason short.\n\nOutput exactly one JSON object.\n\nProbably {\"action\":\"wait\",\"reason\":\"...\"}.\n\nEnsure no markdown."
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "matched_stop": 200008
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 59,
+      "total_tokens": 164,
+      "completion_tokens": 105,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 81,
+      "completion_tokens_details": {
+        "reasoning_tokens": 81
+      }
+    },
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 105
+        }
+      ]
+    }
+  },
+  "elapsed_s": 4.11
+}

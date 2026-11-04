@@ -1,0 +1,137 @@
+{
+  "version": "CP24-P3-F2-M31F-NEW-VERSION",
+  "phase": "CONFIRM",
+  "created_at_utc": "2026-11-02T11:16:49.620172+00:00",
+  "product_commit": "524fa6ee81b8d3ebd7d0d54caaf4b858034c78be",
+  "freeze_pending": false,
+  "product_import_commit": "077315dae516e01bb1e3f54528eac23c6ee22d62",
+  "historical_git_object_verified": true,
+  "public_environment_commit": "f9a1d7efde193de2242ed5afb1f3a326e362c75d",
+  "reasoningbank_source_commit": "ed80611788292ea739f1effd31f16c53823b8a0d",
+  "model_alias": "minimax/minimax-m3.1-flash",
+  "model_price_checked_at_utc": "2026-11-02T11:16:49.620172+00:00",
+  "seeds": [
+    240101,
+    240102,
+    240103,
+    240104,
+    240105,
+    240106,
+    240107,
+    240108,
+    240109,
+    240110
+  ],
+  "order": [
+    {
+      "seed": 240101,
+      "arms": [
+        "F2-M31F"
+      ]
+    },
+    {
+      "seed": 240102,
+      "arms": [
+        "F2-M31F"
+      ]
+    },
+    {
+      "seed": 240103,
+      "arms": [
+        "F2-M31F"
+      ]
+    },
+    {
+      "seed": 240104,
+      "arms": [
+        "F2-M31F"
+      ]
+    },
+    {
+      "seed": 240105,
+      "arms": [
+        "F2-M31F"
+      ]
+    },
+    {
+      "seed": 240106,
+      "arms": [
+        "F2-M31F"
+      ]
+    },
+    {
+      "seed": 240107,
+      "arms": [
+        "F2-M31F"
+      ]
+    },
+    {
+      "seed": 240108,
+      "arms": [
+        "F2-M31F"
+      ]
+    },
+    {
+      "seed": 240109,
+      "arms": [
+        "F2-M31F"
+      ]
+    },
+    {
+      "seed": 240110,
+      "arms": [
+        "F2-M31F"
+      ]
+    }
+  ],
+  "days": 30,
+  "business_tools": 22,
+  "model_requests_per_life_max": 180,
+  "extra_diagnostic_requests_max": 4,
+  "p1_request_cap": 1753,
+  "prior_cumulative_including_unknown_reserve": 47,
+  "cumulative_request_cap": 1800,
+  "authorization_basis": "Existing F2 authorization 1800 requests / USD10 includes every prior GLM diagnostic, failed request and 2026-11-02 recovery probe. User 2026-11-02 explicitly selected MiniMax M3.1 Flash for F2. This is a new F2 model version: 47 old calls and USD0.17036858 conservative prior cost remain counted; new segment at most 1753 calls and USD9.82963142, all diagnostics/retries included. Old GLM subject prefixes cannot be resumed or mixed.",
+  "raw_receipts": [
+    "CP24_F2_PROVIDER_PAUSE_20261101.zip",
+    "CP24_F2_PROVIDER_STALL_CALL45_20261101.zip",
+    "CP24_F2_RECOVERY_DIAGNOSTIC_20261102.json"
+  ],
+  "no_p3_launch_without_new_authorization": false,
+  "old_cp23_results_separate": true,
+  "expected_response_model_id": "minimax/minimax-m3.1-flash",
+  "model_identity_check": "Each HTTP200 response must report exactly minimax/minimax-m3.1-flash and independently verified served provider GMICloud; selected endpoint variant gmicloud/fp8 must be checked in first real diagnostic. Missing or conflicting evidence blocks main run.",
+  "old_cp24_results_separate": true,
+  "old_r1_results_separate": true,
+  "r2_parent_ledgers": [],
+  "product_base_commit": "a5fe958c461505f34693f8786f4ccf30aa779d42",
+  "provider_profile": "F2_OPENROUTER",
+  "pinned_provider": "gmicloud/fp8",
+  "provider_fallbacks": false,
+  "global_cumulative_context_before_core_and_f2": 10280,
+  "batch_fee_guard_usd": 9.82963142,
+  "wallet_min_remaining_usd": 0.5,
+  "f2_parent_ledger": null,
+  "total_f2_request_cap": 1800,
+  "total_f2_fee_guard_usd": 10.0,
+  "f2_prior_calls": 47,
+  "f2_prior_conservative_usd": 0.17036858,
+  "old_f2_glm_source_reference": "9f21ad56def137ceded3f40cb09da9e077072131",
+  "f2_prior_receipts": {
+    "drive_dir": "<PRIVATE_DRIVE_ARCHIVE>",
+    "pause_archive": {
+      "name": "CP24_F2_PROVIDER_PAUSE_20261101.zip",
+      "size_bytes": 8043671
+    },
+    "stall_archive": {
+      "name": "CP24_F2_PROVIDER_STALL_CALL45_20261101.zip",
+      "size_bytes": 7414012
+    },
+    "recovery_diagnostic": {
+      "name": "CP24_F2_RECOVERY_DIAGNOSTIC_20261102.json",
+      "size_bytes": 1871
+    }
+  },
+  "expected_selected_endpoint_model": "minimax/minimax-m3.1-flash-20261019",
+  "source_reconstruction": "Independent Colab copy of restored P2 source 077315d plus archived F2_HARNESS_PATCH.diff, then new MiniMax-only F2 code commit; original a5fe958 and 9f21ad source references are provenance, not claimed as verified local Git ancestry."
+}

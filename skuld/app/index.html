@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light">
+<title>Skuld · 未竟之事</title><link rel="stylesheet" href="/ui/legacy.css"><link rel="stylesheet" href="/ui/app.css"><script src="/ui/product-work.js" defer></script><script src="/ui/app.js" defer></script>
+</head><body>
+<main id="login" class="auth-screen">
+  <section class="auth-art" aria-label="Skuld">
+    <a class="mark" href="#login" aria-label="SKULD"><span class="mark-sigil" aria-hidden="true"><i></i><b></b><em></em></span><span>SKULD</span></a>
+    <div><span class="eyebrow">THE THINGS WE CARRY FORWARD</span><h1>未竟之事。</h1><blockquote>对话结束，<br>事情仍在继续。</blockquote></div>
+    <small>一个持续维护目标、承诺与世界变化的个人 AI。每一步行动，都有依据与明确的授权。</small>
+  </section>
+  <section class="auth-panel"><span>RETURN TO YOUR SUBJECT / 回到你的主体</span><h2>接着往下走。</h2><p>已有工作区可以直接回来。第一次连接后，可以导入历史，或用几个简短问题建立你的起点。</p>
+    <form id="login-form" class="auth-form"><label for="uid">SUBJECT / 用户 ID<input id="uid" required autocomplete="off" autocapitalize="none" spellcheck="false"></label><label for="key">ACCESS / 访问凭证<input id="key" type="password" required autocomplete="off" autocapitalize="none" spellcheck="false"></label><button id="connect" type="submit">连接我的 Skuld</button></form>
+    <div class="auth-boundary"><b id="health">正在连接后台…</b><p>访问凭证仅用于当前页面的连接。关闭或断开页面后，需要重新输入。</p></div>
+  </section>
+</main>
+<div id="app" class="app-shell" hidden>
+  <aside class="app-sidebar" aria-label="工作区导航">
+    <a class="mark mark-compact" href="#chat-view" aria-label="SKULD 对话"><span class="mark-sigil" aria-hidden="true"><i></i><b></b><em></em></span><span>SKULD</span></a>
+    <div class="sidebar-caption"><span class="eyebrow">PERSONAL CONTINUITY</span><p>对话与未竟之事</p></div>
+    <nav class="thread-list" id="workspace-nav"><p>WORKSPACE / 工作区</p><button type="button" class="active" data-view="chat" aria-current="page">与你的对话 <small>CONVERSATION</small></button><button type="button" data-view="continuity">我的当前理解 <small>YOUR WORLD</small></button><button type="button" data-view="onboarding">你的起点 <small>GETTING TO KNOW YOU</small></button><button type="button" data-view="coding">推进代码 <small>CODING</small></button><button type="button" data-view="actions">准备好的下一步 <small>NEXT STEPS</small></button><button type="button" data-view="sources">世界来源 <small>WORLD SOURCES</small></button><p>COGNITION / 认知</p><button type="button" data-drawer="world">动态超图 <small>WORLD MODEL</small></button><button type="button" data-drawer="future">目标与承诺 <small>CONTINUITY</small></button><button type="button" data-drawer="evidence">依据与回执 <small>EVIDENCE</small></button></nav>
+    <div class="app-identity"><span>ONE SUBJECT / 同一主体</span><b id="subject-name">Skuld</b><small id="subject-mode">正在读取主体</small><button type="button" id="disconnect">断开连接</button></div>
+  </aside>
+  <main class="chat-stage">
+    <header class="chat-header"><div><b>Skuld</b><span id="connection-status">与你一起，接着往下走。</span></div><nav aria-label="主体控制"><button type="button" data-drawer="world">认知视图</button><button type="button" id="mobile-context">未竟之事</button></nav></header>
+    <section id="chat-view" class="workspace-view conversation-view" aria-label="与你的对话">
+      <div id="chatlog" class="chat-scroll" aria-live="polite" aria-relevant="additions text"><div class="chat-empty"><span>CONTINUITY / 主体持续性</span><h2>有些事情，<br>值得继续。</h2><p>告诉我你在意什么、答应了什么，<br>以及还没有做完的事。</p></div></div>
+      <form id="chat-form" class="chat-composer"><label class="sr-only" for="message">与你的 Skuld 对话</label><textarea id="message" rows="3" maxlength="20000" placeholder="告诉我你在意什么，以及接下来想做的事。"></textarea><button id="send" type="submit" aria-label="发送消息">↑</button><p id="chat-hint">我会把需要延续的事情带到下一次对话里。</p></form>
+      <div class="model-controls"><label for="route">当前模型</label><select id="route"><option value="deepseek">DeepSeek</option><option value="openrouter">Qwen / OpenRouter</option></select><button type="button" id="switch">切换模型</button><span>同一主体，继续这段关系。</span></div>
+    </section>
+    <section id="onboarding-view" class="workspace-view workbench-view onboarding-view" aria-labelledby="onboarding-heading" hidden>
+      <div class="onboarding-topline"><span class="eyebrow">A BEGINNING, NOT A BLANK SLATE</span><button type="button" id="onboarding-later" class="quiet-button">稍后继续</button></div>
+      <div id="onboarding-choice" class="onboarding-phase">
+        <div class="workbench-title"><span class="chapter-number" aria-hidden="true">01 /</span><h1 id="onboarding-heading">先从你开始。</h1><p>我想知道你在意的人、眼下的处境，以及想往前推进的事。<br>你可以带来一段历史，也可以从几句简单的回答开始。</p></div>
+        <div class="entry-choices"><button type="button" id="choose-import" class="entry-choice"><span>BRING YOUR HISTORY</span><b>带上之前的对话</b><p>可选：导入 ChatGPT 或 Claude 的 JSON。先预览、再选择保留什么。</p><i aria-hidden="true">↗</i></button><button type="button" id="choose-questions" class="entry-choice"><span>START WITH WHAT MATTERS</span><b>从现在的你开始</b><p>8 个简短问题，每题都可以跳过。你可以随时回来修改。</p><i aria-hidden="true">→</i></button></div>
+        <p class="privacy-note">先形成一个可修改的起点。没有告诉我的部分会保留为空白，不会替你补出事实或权限。</p>
+      </div>
+      <div id="onboarding-import" class="onboarding-phase" hidden>
+        <div class="workbench-title"><h1>把历史带过来。</h1><p>支持 ChatGPT 的 mapping 导出和 Claude 的 chat_messages 导出 JSON，最大 10 MiB。图片、附件、工具消息和其他格式暂不支持。</p></div>
+        <form id="import-preview-form" class="workbench-form"><label class="file-picker" for="history-file"><span>选择一份 JSON 导出文件</span><input id="history-file" type="file" accept=".json,application/json"></label><button type="submit" id="preview-import" class="solid-button">仅预览文件</button><p class="form-hint">文件只在当前 Skuld 工作区解析。这一步不保存历史，也不发送给模型。</p></form>
+        <div id="import-preview" hidden><div class="section-title"><span>REVIEW / 先看看带来了什么</span><span id="import-counts"></span></div><div id="import-warnings" class="privacy-note"></div><p class="form-hint">勾选要保留的对话。你和助手说过的话会分开保留，都属于历史记录。可以把自己说过、如今仍然适用的话加入下一步的当前情况审阅。</p><div id="import-conversations"></div><label class="consent-line"><input id="import-consent" type="checkbox"><span>我同意把所选历史保存在当前 Skuld 工作区；不会把历史发送给外部模型。</span></label><button type="button" id="commit-import" class="solid-button">保留所选历史，继续</button></div>
+        <div class="onboarding-navigation"><button type="button" id="import-back" class="quiet-button">返回</button><button type="button" id="import-skip" class="quiet-button">不导入，回答几个问题 →</button></div><p id="import-status" class="form-hint" role="status"></p>
+      </div>
+      <div id="onboarding-questions" class="onboarding-phase" hidden>
+        <div class="question-progress"><span id="question-number"></span><div id="question-track" aria-hidden="true"></div></div><span id="question-label" class="eyebrow"></span><h1 id="question-title" tabindex="-1"></h1><p id="question-hint" class="form-hint"></p>
+        <form id="question-form" class="workbench-form"><label class="sr-only" for="question-answer">你的回答</label><textarea id="question-answer" rows="5" maxlength="4000"></textarea><div class="question-actions"><button type="button" id="question-back" class="quiet-button">← 上一个</button><button type="button" id="question-skip" class="quiet-button">跳过这个问题</button><button type="submit" id="question-next" class="solid-button">继续 →</button></div></form><p class="privacy-note">没有标准答案。这里还没有保存，你可以回头修改。</p>
+      </div>
+      <div id="onboarding-review" class="onboarding-phase" hidden>
+        <div class="workbench-title"><span class="eyebrow">A PROVISIONAL UNDERSTANDING</span><h1>这是我们的起点。</h1><p>这些是你此刻愿意确认的情况。修改任何不准确的地方；留空的部分会保持未知。以后我们会随着新的对话继续修正。</p></div>
+        <form id="onboarding-save-form"><div id="onboarding-review-fields" class="review-fields"></div><div class="processing-boundary"><b>由你决定如何处理</b><p id="onboarding-processing-note"></p><label id="answer-consent-line" class="consent-line" hidden><input id="answer-processing-consent" type="checkbox"><span id="answer-processing-label"></span></label><p class="form-hint">导入的历史始终仅保留在当前工作区。这里不会授权发送消息、修改账户或其他外部操作。</p></div><div class="question-actions"><button type="button" id="review-back" class="quiet-button">← 回到问题</button><button id="save-onboarding" type="submit" class="solid-button">确认起点，开始继续</button></div><p id="onboarding-status" class="form-hint" role="status"></p></form>
+      </div>
+    </section>
+    <section id="continuity-view" class="workspace-view workbench-view continuity-view" aria-labelledby="continuity-heading" hidden>
+      <div class="workbench-title"><span class="eyebrow">YOUR WORLD, STILL UNFOLDING</span><h1 id="continuity-heading">我正在理解的你。</h1><p>把现在知道的、仍不确定的、以及可能值得提前准备的事分开来看。这份理解来自同一个持续记录，可以随着你改变。</p></div>
+      <div id="product-capability" class="capability-note" role="status"></div><div class="section-title"><span>NOW / 此刻的起点</span><button type="button" id="edit-start">修改我的起点</button></div><div id="product-current" class="personal-world-grid"></div>
+      <div class="section-title"><span>NEXT / 可能接下来发生什么</span></div><div id="product-predictions"></div><div class="section-title"><span>PREPARATION / 可以提前做些什么</span></div><div id="product-candidates"></div><div class="section-title"><span>LEARNING / 后来实际发生了什么</span></div><div id="product-learning"></div>
+      <details class="history-summary"><summary id="history-summary-label">此前的对话片段</summary><div id="product-history"></div></details>
+    </section>
+    <section id="coding-view" class="workspace-view workbench-view" aria-labelledby="coding-heading" hidden>
+      <div class="workbench-title"><span class="eyebrow">FROM INTENT TO A CHECKED PATCH</span><h1 id="coding-heading">把代码往前推进。</h1><p>选择一个已注册项目，把这次修改关联到一件正在承担的事。Skuld 会在隔离副本中准备补丁，经过独立检查后交给你审阅。</p></div>
+      <form id="coding-form" class="workbench-form"><label for="coding-project">PROJECT / 已注册项目<select id="coding-project"><option value="">等待项目列表</option></select></label><div id="project-description" class="project-description" aria-live="polite"></div><label for="coding-responsibility">PURPOSE / 这次修改服务于哪件事<select id="coding-responsibility"><option value="">先在对话里留下你的目标</option></select></label><label for="coding-instruction">INTENT / 需要实现或修复什么<textarea id="coding-instruction" rows="5" maxlength="20000" placeholder="描述希望达到的行为，以及怎样判断它已经完成。"></textarea></label><button id="coding-prepare" type="submit" class="solid-button" disabled>准备代码修改</button><p id="coding-hint" class="form-hint" role="status">正在读取项目与已有责任。</p></form>
+      <div class="section-title"><span>RUNS / 正在推进的修改</span><span id="coding-count"></span></div><div id="coding-runs" aria-live="polite"></div>
+      <div class="section-title"><span>PROJECT EXECUTION / 运行已注册阶段</span></div><h2 class="project-step-heading">把准备好的版本跑起来。</h2><p class="form-hint">选择项目的当前工作区版本和一个已注册阶段。先准备固定范围的执行计划，再逐项批准运行；实际退出码与输出会单独留存。</p>
+      <form id="project-step-form" class="workbench-form project-step-form"><label for="project-run-project">PROJECT / 运行哪个项目<select id="project-run-project"><option value="">选择已注册项目</option></select></label><div id="project-revision" class="project-description" aria-live="polite">请选择项目，读取实际工作区版本。</div><label for="project-run-step">STEP / 已注册阶段<select id="project-run-step"><option value="">等待项目的阶段列表</option></select></label><label for="project-run-responsibility">PURPOSE / 服务于哪件事<select id="project-run-responsibility"><option value="">选择一件已有的事</option></select></label><button id="project-step-prepare" class="solid-button" type="submit" disabled>准备阶段执行计划</button><p id="project-step-hint" class="form-hint" role="status">当前版本与阶段由项目注册表提供。</p></form>
+    </section>
+    <section id="actions-view" class="workspace-view workbench-view" aria-labelledby="actions-heading" hidden><div class="workbench-title"><span class="eyebrow">PREPARED, BEFORE YOU RETURN</span><h1 id="actions-heading">下一步，已经准备好。</h1><p>草稿、问题和其他可逆准备可以直接查看。涉及外部生效的操作，仍需要审阅具体内容与范围。</p></div><div id="product-prepared" aria-live="polite"></div><div class="section-title"><span>EXTERNAL ACTIONS / 需要审阅的具体操作</span></div><div id="work" aria-live="polite"></div></section>
+    <section id="sources-view" class="workspace-view workbench-view" aria-labelledby="sources-heading" hidden>
+      <div class="workbench-title"><span class="eyebrow">A WORLD THAT KEEPS CHANGING</span><h1 id="sources-heading">让变化有出处。</h1><p>连接你已经授权 Skuld 观察的事实来源。后台会持续读取变化，并与之前的判断比对。</p></div>
+      <form id="source-form" class="workbench-form"><label for="sourceurl">SOURCE / 事实源 URL<input id="sourceurl" type="url" required placeholder="https://…" maxlength="2048"></label><label for="sourcename">NAME / 来源名称<input id="sourcename" required maxlength="200" placeholder="你怎样称呼这个来源"></label><label for="adapter">FORMAT / 来源格式<select id="adapter"><option value="web_page">普通网页</option><option value="json_facts">带时间戳的 JSON 事实源</option></select></label><button id="watch" type="submit" class="solid-button">开始观察</button><p id="source-hint" class="form-hint" role="status">只观察这里明确连接的来源。</p></form>
+      <div class="section-title"><span>OBSERVATIONS / 已有观察</span></div><div id="source-list"></div>
+    </section>
+  </main>
+  <aside id="context-panel" class="app-context" aria-label="未竟之事"><span>THE THINGS WE CARRY / 未竟之事</span><h2>我正在承担。</h2><div id="responsibilities"></div><div class="context-section"><span class="eyebrow">PREPARED / 已准备</span><div id="work-preview"></div><button type="button" data-view="actions">查看全部下一步</button></div><div class="identity-boundary"><b id="worker-title">记录会留在这里。</b><p id="worker-state">正在读取持续运行状态。</p><button type="button" data-drawer="evidence">查看依据与回执</button></div></aside>
+</div>
+<div id="drawer-scrim" class="drawer-scrim" hidden></div>
+<aside id="cognition-drawer" class="cognition-drawer" role="dialog" aria-modal="true" aria-labelledby="cognition-title" aria-hidden="true" inert>
+  <header class="cognition-head"><div><span>COGNITION / 持续世界模型</span><b id="cognition-title">世界仍在继续。</b><small id="graph-summary">读取当前主体的持久图。</small></div><button type="button" id="close-drawer" aria-label="关闭认知视图">×</button></header>
+  <nav class="cognition-tabs" aria-label="认知视图"><button type="button" data-tab="world" class="active">动态超图</button><button type="button" data-tab="future">目标与承诺</button><button type="button" data-tab="evidence">依据与回执</button></nav>
+  <div class="cognition-canvas">
+    <section id="world-panel" class="cognition-panel"><div class="graph-toolbar"><label for="hyperedge-selection">选择真实关系<select id="hyperedge-selection"><option value="">最近的关系</option></select></label><button type="button" id="refresh-graph">更新图</button></div><p class="graph-note">关系结点连接实际参与者；标签来自持久图中的角色与类型。</p><div id="hypergraph"></div><div id="graph-inspector" class="graph-inspector"></div><p class="graph-note">预测误差与温度没有可展示的实时估计；此处只呈现已有图数据。</p></section>
+    <section id="future-panel" class="cognition-panel" hidden><div class="live-future"><section><h3>目标与承诺</h3><div id="future-responsibilities"></div></section><section><h3>判断与预测</h3><div id="future-beliefs"></div></section></div></section>
+    <section id="evidence-panel" class="cognition-panel" hidden><div class="section-title"><span>ARTIFACT / 草稿与补丁</span><span id="artifact-label">尚未选择</span></div><pre id="artifact">从下一步或代码运行中，选择一份草稿或补丁。</pre><div class="section-title"><span>RECEIPTS / 审计摘要</span><button type="button" id="export">更新审计摘要</button></div><pre id="audit">读取主体后，可以查看持久图中的依据与回执。</pre></section>
+  </div>
+  <footer class="cognition-status"><span>Source → Belief → Prediction → Action</span><strong id="graph-integrity">等待图数据</strong></footer>
+</aside>
+<div id="error" class="page-error" role="alert" hidden></div>
+</body></html>

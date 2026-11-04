@@ -1,0 +1,33 @@
+{
+  "version": "CP24-P1-PRELOCK",
+  "public_environment_commit": "f9a1d7efde193de2242ed5afb1f3a326e362c75d",
+  "targets": [
+    {
+      "target_type": "inventory_zero_next_day",
+      "existing": true,
+      "outcome_type": "boolean",
+      "score": "Brier",
+      "future_result_source": "public subsequent inventory observation",
+      "label_scope": "object and location binding from public evidence"
+    },
+    {
+      "target_type": "realized_units_next_day",
+      "existing": false,
+      "outcome_type": "nonnegative observed units",
+      "score": "(expected_units-observed_units)^2 / max(1, issuance_available_units)^2",
+      "expected_units_field": "expected_units",
+      "probability": null,
+      "object_key": "location x canonical_product_id x business_day",
+      "allowed_public_tool": "paired public get_sales_report(days=1,by_product=false,location=...) then get_sales_report(days=1,by_product=true,location=...) on same pre-call business day",
+      "report_day_binding": "first public daily report supplies explicit day/date and totals; second public by-product report supplies product aggregate; totals, location and same-day coverage must agree; post-call trailing clock never labels either body",
+      "missing_product": "0 only if complete coverage and stable alias; otherwise UNKNOWN",
+      "intervention_signature": "NO_RESTOCK_OR_REPLACEMENT_OR_REPRICE",
+      "intervention_changed": "CENSORED or new issuance; never retroactively edit frozen prediction",
+      "truth_limit": "realized sales, not latent demand or causal price elasticity",
+      "reference": "pre-issuance same-target and scope public realized-unit mean; unavailable baseline means unpaired",
+      "coverage": "both public reports complete and consistent, stable canonical product alias, same completed-day window; otherwise UNKNOWN",
+      "complete_coverage": "both actual paid-time public reads succeed for the same day and location, totals reconcile, product alias is stable; otherwise UNKNOWN"
+    }
+  ],
+  "publication": "at least 4 unique common future events across >=2 day clusters; offspring vs parent and baseline; do not inherit birth event or validation scores"
+}

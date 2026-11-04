@@ -1,0 +1,3 @@
+# CP24 P2 pre-code S-NOEVO failure contract
+
+The fourth same-base-model arm must retain the public business state, responsibilities, actual experiences, and ordinary feedback memory. It must not create or retrieve BusinessCandidate/Hypothesis evolutionary rules. One real public day transition should cause an ordinary reflection and the following actual DECIDE request should receive its persisted feedback. No paid API is used in this E2E; scripted model text is an interface fixture, not a business score. Any missing memory, unauthorized action, hidden-world read, or evolutionary candidate is a failure.

@@ -1,0 +1,58 @@
+{
+  "at_utc": "2026-11-04T07:34:34.476548+00:00",
+  "old_agent_pid": 50193,
+  "old_agent_process_exited": true,
+  "new_agent_pid": 71226,
+  "new_agent_process_alive": true,
+  "same_user_id": true,
+  "environment_day_before_after": [
+    10,
+    10
+  ],
+  "startup_execution_prefix_matched": true,
+  "old_execution_count": 185,
+  "old_execution_ids_preserved": true,
+  "new_execution_count_at_audit": 8,
+  "old_responsibility_ids_preserved": true,
+  "old_responsibility_count": 2,
+  "new_observations_after_restart_at_audit": 8,
+  "day10_checkpoints": [
+    {
+      "folder": "cp_010_day10",
+      "reason": "DAILY_SAFE_BOUNDARY",
+      "day": 10,
+      "state_turn": 67,
+      "public_executions": 185,
+      "environment_sha256": "3b57210166b09d619d05bec7183582c71ceaf50b01d237d159b4ab7d1bb18e5f"
+    },
+    {
+      "folder": "cp_011_day10",
+      "reason": "PROCESS_EXIT_planned_process_restart",
+      "day": 10,
+      "state_turn": 67,
+      "public_executions": 185,
+      "environment_sha256": "3b57210166b09d619d05bec7183582c71ceaf50b01d237d159b4ab7d1bb18e5f"
+    },
+    {
+      "folder": "cp_012_day10",
+      "reason": "DAILY_SAFE_BOUNDARY",
+      "day": 10,
+      "state_turn": 68,
+      "public_executions": 187,
+      "environment_sha256": "83722ac5c5b601c4d83888f7f37cc8235570b53c5205ed39dd1d8686bc21f3d3"
+    }
+  ],
+  "environment_snapshot_identical_at_exit": true,
+  "unfinished_matter": {
+    "pre_restart_checkpoint": "cp_010_day10",
+    "pre_restart_complaint_id": "CMP-001",
+    "pre_restart_status": "open",
+    "pre_restart_refund_amount_eur": 8.14,
+    "post_restart_read_email_observation_id": "toolobservation_ce0333b84531ef0ac129f9aae1d4d89d66e5c4f6",
+    "post_restart_email_id": "MSG-0016",
+    "post_restart_payment_observation_id": "toolobservation_963e1a3eba7fe4da23d38012efc0ad40047e27f5",
+    "post_restart_payment_tool": "send_payment",
+    "post_restart_observed_outcome": "payment sent; customer confirmed refund and withdrew complaint",
+    "basis": "private pre-restart checkpoint plus post-restart public tool observations; no claim based solely on runtime narrative"
+  }
+}

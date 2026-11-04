@@ -1,0 +1,63 @@
+{
+  "at_utc": "2026-11-04T05:10:12.636033+00:00",
+  "request": {
+    "model": "muse-glimmer",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Return exactly one JSON object with keys action and reason. No markdown."
+      },
+      {
+        "role": "user",
+        "content": "Choose action wait for a vending machine with no stock data. Give a short reason."
+      }
+    ],
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "max_tokens": 128,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "http_status": 200,
+  "response": {
+    "id": "df1f63d0ca2b403c82bb82bbaddb5ca1",
+    "object": "chat.completion",
+    "created": 1793769063,
+    "model": "muse-glimmer",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "reasoning_content": "Choose action wait for a vending machine with no stock data. Give a short reason.\n\nChoose action wait for a vending machine with no stock data. Give a short reason.\n\nWe need choose action wait for a vending machine with no stock data. Give a short reason.\n\nProbably output JSON object with keys action and reason. No markdown.\n\nReturn exactly one JSON object with keys action and reason. No markdown.\n\nSo output like {\"action\":\"wait\",\"reason\":\"...\"} ?\n\nChoose action wait for a vending machine with no stock data. Give a short reason.\n\nProbably action is wait.\n\nReason: no stock data, cannot decide.\n\nNeed"
+        },
+        "logprobs": null,
+        "finish_reason": "length",
+        "matched_stop": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 59,
+      "total_tokens": 187,
+      "completion_tokens": 128,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 128,
+      "completion_tokens_details": {
+        "reasoning_tokens": 128
+      }
+    },
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 128
+        }
+      ]
+    }
+  },
+  "elapsed_s": 50.938
+}

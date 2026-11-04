@@ -1,0 +1,205 @@
+{
+  "version": "CP24-P3-CORE-10-SEEDS-AUTHORIZED",
+  "phase": "CONFIRM",
+  "created_at_utc": "2026-11-01T15:05:31.608693+00:00",
+  "product_commit": "a5fe958c461505f34693f8786f4ccf30aa779d42",
+  "freeze_pending": false,
+  "product_import_commit": "6ee91a8f51f5035a43c097bb417b8695c7d46018",
+  "historical_git_object_verified": false,
+  "public_environment_commit": "f9a1d7efde193de2242ed5afb1f3a326e362c75d",
+  "reasoningbank_source_commit": "ed80611788292ea739f1effd31f16c53823b8a0d",
+  "model_alias": "deepseek-flash",
+  "model_price_checked_at_utc": "2026-11-01T02:08:45+00:00",
+  "seeds": [
+    240101,
+    240102,
+    240103,
+    240104,
+    240105,
+    240106,
+    240107,
+    240108,
+    240109,
+    240110
+  ],
+  "order": [
+    {
+      "seed": 240101,
+      "arms": [
+        "S-EVO",
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB"
+      ]
+    },
+    {
+      "seed": 240102,
+      "arms": [
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB",
+        "S-EVO"
+      ]
+    },
+    {
+      "seed": 240103,
+      "arms": [
+        "S-NOEVO",
+        "B-RB",
+        "S-EVO",
+        "S-FRESH"
+      ]
+    },
+    {
+      "seed": 240104,
+      "arms": [
+        "B-RB",
+        "S-EVO",
+        "S-FRESH",
+        "S-NOEVO"
+      ]
+    },
+    {
+      "seed": 240105,
+      "arms": [
+        "S-EVO",
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB"
+      ]
+    },
+    {
+      "seed": 240106,
+      "arms": [
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB",
+        "S-EVO"
+      ]
+    },
+    {
+      "seed": 240107,
+      "arms": [
+        "S-NOEVO",
+        "B-RB",
+        "S-EVO",
+        "S-FRESH"
+      ]
+    },
+    {
+      "seed": 240108,
+      "arms": [
+        "B-RB",
+        "S-EVO",
+        "S-FRESH",
+        "S-NOEVO"
+      ]
+    },
+    {
+      "seed": 240109,
+      "arms": [
+        "S-EVO",
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB"
+      ]
+    },
+    {
+      "seed": 240110,
+      "arms": [
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB",
+        "S-EVO"
+      ]
+    }
+  ],
+  "days": 30,
+  "business_tools": 22,
+  "model_requests_per_life_max": 180,
+  "extra_diagnostic_requests_max": 9,
+  "p1_request_cap": 7200,
+  "prior_cumulative_including_unknown_reserve": 10280,
+  "cumulative_request_cap": 17480,
+  "authorization_basis": "User 2026-11-01 explicitly authorized four core arms: 7200 new calls / CNY150 batch, cumulative cap 17480; F1/F2 provider credentials and budget pending.",
+  "internal_p1_guard_cny": 150.0,
+  "internal_guard_is_user_grant": true,
+  "wallet_min_remaining_cny": 3.479376,
+  "wallet_at_initial_preflight_cny": 19.97,
+  "raw_receipts": "New CONFIRM core requests in /content/cp24_confirm_p3_core/calls.jsonl; old P1/R1/R2/R3/R4/R5 ledgers sealed separately, no credentials",
+  "no_p3_launch_without_new_authorization": false,
+  "old_cp23_results_separate": true,
+  "expected_response_model_id": "deepseek-flash",
+  "model_identity_check": "every HTTP 200 provider response must match expected_response_model_id exactly; first diagnostic retains raw body if mismatch",
+  "old_cp24_results_separate": true,
+  "old_r1_results_separate": true,
+  "r2_parent_ledgers": [
+    {
+      "batch": "OLD_CP24_P1",
+      "path": "/content/cp24_dev/calls.jsonl",
+      "source_root": "/content/skuld",
+      "persisted_rows": 249,
+      "persisted_estimated_cny": 5.18063792,
+      "size_bytes": 16515443,
+      "mtime_ns": 1793497637035733766,
+      "possible_unrecorded_requests": 1,
+      "possible_unrecorded_reserved_cny": 0.114688
+    },
+    {
+      "batch": "OLD_CP24_R1",
+      "path": "/content/cp24_dev_r1/calls.jsonl",
+      "source_root": "/content/skuld_cp24_r1",
+      "persisted_rows": 259,
+      "persisted_estimated_cny": 5.38961984,
+      "size_bytes": 17303123,
+      "mtime_ns": 1793501930003995034,
+      "possible_unrecorded_requests": 1,
+      "possible_unrecorded_reserved_cny": 0.114688
+    },
+    {
+      "batch": "OLD_CP24_R2_EARLY_INVALID",
+      "path": "/content/cp24_dev_r2/calls.jsonl",
+      "source_root": "/content/skuld_cp24_r2",
+      "persisted_rows": 37,
+      "persisted_estimated_cny": 0.50319812,
+      "size_bytes": 1895686,
+      "mtime_ns": 1793518816069865098,
+      "possible_unrecorded_requests": 0,
+      "possible_unrecorded_reserved_cny": 0
+    },
+    {
+      "batch": "OLD_CP24_R2_FIX1_LATE_INVALID",
+      "path": "/content/cp24_dev_r3/calls.jsonl",
+      "source_root": "/content/skuld_cp24_r3",
+      "persisted_rows": 139,
+      "persisted_unknown_rows": 1,
+      "persisted_estimated_cny": 2.94860452,
+      "size_bytes": 9294275,
+      "mtime_ns": 1793521461057873845,
+      "possible_unrecorded_requests": 0,
+      "possible_unrecorded_reserved_cny": 0
+    },
+    {
+      "batch": "OLD_CP24_R4",
+      "path": "/content/cp24_dev_r4/calls.jsonl",
+      "source_root": "/content/skuld_cp24_r4",
+      "size_bytes": 49309680,
+      "mtime_ns": 1793531667309198743,
+      "persisted_rows": 711,
+      "persisted_unknown_rows": 0,
+      "persisted_estimated_cny": 15.50448028
+    },
+    {
+      "batch": "OLD_CP24_R5_SEED2_INCOMPLETE",
+      "path": "/content/cp24_dev_r5/calls.jsonl",
+      "source_root": "/content/skuld_cp24_r5",
+      "persisted_rows": 109,
+      "persisted_unknown_rows": 0,
+      "persisted_estimated_cny": 2.35677136,
+      "size_bytes": 7526211,
+      "mtime_ns": 1793535005949905137,
+      "possible_unrecorded_requests": 0,
+      "possible_unrecorded_reserved_cny": 0
+    }
+  ]
+}

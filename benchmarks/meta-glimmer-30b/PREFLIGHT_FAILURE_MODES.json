@@ -1,0 +1,17 @@
+{
+  "written_before_meta_adapter_code": true,
+  "failure_modes": [
+    "wrong frozen source or Prosus/ReasoningBank revision",
+    "model weights or served identity differ from fixed BF16 revision",
+    "non-loopback endpoint or paid-provider fallback",
+    "JSON mode, finish_reason or schema validation fails",
+    "official tokenizer/template overflows context",
+    "model issues no real public tool action",
+    "unknown transport timeout or partial ToolAttempt",
+    "SQLite WAL/checkpoint inconsistency",
+    "duplicate public effects after process restart",
+    "score finalized early/late",
+    "Drive checkpoint sync failure",
+    "GPU out-of-memory"
+  ]
+}

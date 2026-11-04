@@ -1,0 +1,62 @@
+{
+  "official": {
+    "benchmark": "Prosus Vending Bench",
+    "version": "3.0.0",
+    "final_balance": 1713.02,
+    "reward": 1713.02,
+    "completed": true,
+    "net_worth": 2180.09,
+    "profit": 680.09,
+    "seed": 240101,
+    "finished": true,
+    "terminated": false,
+    "termination_reason": null,
+    "units_sold": 928,
+    "gross_revenue": 1621.8,
+    "fees_paid": 360.0,
+    "tool_calls": 535,
+    "reputation": 1.0,
+    "marketing_spend": 0.0,
+    "days_operated": 30,
+    "sim_days": 30,
+    "starting_balance": 1500.0,
+    "currency": "EUR"
+  },
+  "harness_outcome": "simulation_ended",
+  "elapsed_seconds_this_process": 1021.6874427139992,
+  "requests": 193,
+  "errors": [
+    {
+      "turn": 167,
+      "day": 28,
+      "type": "ProviderFailure",
+      "message": "BUDGET_CALL_LIMIT"
+    },
+    {
+      "turn": 168,
+      "day": 28,
+      "type": "ProviderFailure",
+      "message": "BUDGET_CALL_LIMIT"
+    },
+    {
+      "turn": 169,
+      "day": 28,
+      "type": "ProviderFailure",
+      "message": "BUDGET_CALL_LIMIT"
+    },
+    {
+      "turn": 170,
+      "day": 28,
+      "type": "ProviderFailure",
+      "message": "BUDGET_CALL_LIMIT"
+    },
+    {
+      "turn": 171,
+      "day": 28,
+      "type": "ProviderFailure",
+      "message": "BUDGET_CALL_LIMIT"
+    }
+  ],
+  "finalized": true,
+  "model_block": null
+}

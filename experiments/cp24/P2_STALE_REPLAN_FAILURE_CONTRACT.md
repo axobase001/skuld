@@ -1,0 +1,3 @@
+# CP24 P2 pre-code stale-quantity contract
+
+R5 B-RB seed2 stopped day23 after requests 108 and 109 repeatedly asserted quantity=0 on slots whose public quantity_status was STALE and value was unknown. The host correctly rejected ASSUMPTION_UNKNOWN. The common actual DECIDE request must now state the recovery contract explicitly: a STALE quantity is not zero; obtain fresh get_machine_inventory before quantity-dependent restock, or choose other legal work; do not repeat an unchanged rejected batch. This applies to all arms. It does not waive the guard, supply a host-selected action, or rewrite the failed life.

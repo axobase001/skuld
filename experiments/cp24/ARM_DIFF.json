@@ -1,0 +1,58 @@
+{
+  "version": "CP24-P2-FOUR-CORE-ARMS",
+  "common": {
+    "model_alias": "deepseek-flash",
+    "public_tools": 22,
+    "input_tokens_max": 256000,
+    "output_tokens_max": 256000,
+    "all_model_requests_per_life_max": 180,
+    "public_environment_commit": "f9a1d7efde193de2242ed5afb1f3a326e362c75d",
+    "native_runtime": true
+  },
+  "arms": {
+    "S-EVO": {
+      "tool_subject_arm": "S-EVO",
+      "sec": true,
+      "candidate_pool": true,
+      "parent_edit": true,
+      "publication": true,
+      "scene_recall": true
+    },
+    "S-FRESH": {
+      "tool_subject_arm": "S-FRESH",
+      "sec": true,
+      "candidate_pool": true,
+      "parent_edit": false,
+      "publication": true,
+      "scene_recall": true,
+      "candidate_origin": "independent root only"
+    },
+    "B-RB": {
+      "tool_subject_arm": "B-RB",
+      "sec": false,
+      "candidate_pool": false,
+      "ordinary_history": true,
+      "reasoningbank_style_recall": true,
+      "guidance_source_commit": "ed80611788292ea739f1effd31f16c53823b8a0d"
+    },
+    "S-NOEVO": {
+      "tool_subject_arm": "S-NOEVO",
+      "sec_evolution": false,
+      "candidate_pool": false,
+      "publication": false,
+      "ordinary_history": true,
+      "ordinary_feedback_memory": true,
+      "public_state_and_responsibilities": true
+    }
+  },
+  "unavailable_frontier_slots": {
+    "F1": {
+      "status": "NOT_RUN",
+      "reason": "No separately authorized provider credential available in Colab"
+    },
+    "F2": {
+      "status": "NOT_RUN",
+      "reason": "No separately authorized provider credential available in Colab"
+    }
+  }
+}

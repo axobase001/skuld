@@ -1,0 +1,11 @@
+# CP24 R4 256K and FIX1 parent-ledger failure contract (pre-code)
+
+Input evidence: saved R3/FIX1 `CP24_DEV_S-EVO_seed1` day25 `PRODUCT_TOOL_REFLECT` unsent preflight in `/content/cp24_dev_r3/CP24_DEV_S-EVO_seed1/runtime/receipts.jsonl`. It failed `INPUT_TOKEN_LIMIT_REQUIRED_CONTEXT` under 32768 input / 6144 output. The source receipt, complete task, schema, experience and candidate references remain unchanged.
+
+Failure modes to test before implementation:
+1. `Runtime` configured for 256000 input and 256000 output still rejects output at `model_output_limit()` because the existing hard cap is 6144. The saved REFLECT must pass through the actual final-wire fitter at the new input limit without silent field deletion or truncation; its exact task facts, experiences, responsibilities, learning statistics, candidate parents and legal-reference contract must survive. Schema may drop display titles only if that was existing behavior. Provider transport is a zero-call sentinel.
+2. Enlarging only the input does not meet the user request: actual final payload must carry `max_tokens=256000`, and any output-limit validation must use that value. The provider's advertised capacity is separate from actual usage; no 256000-token output is presumed.
+3. R3/FIX1 parent ledger has 139 saved rows including one `RESERVED` request. It must remain protected as possible unknown consumption, not silently converted to free budget or included as a successful response. R4 must count prior R3 rows/reservation in cumulative and fee safeguards before any new request. Do not edit the R3 ledger.
+4. The existing cumulative/request/money authorization and actual wallet guard remain binding. At 256000/256000 the current conservative per-request reserve formula is `(256000*2 + 256000*8)/1e6 = CNY 2.56`; this is a guard, not actual bill or new user funding. R4 cannot assume the previous 0.114688 CNY reserve is adequate for a new 256K request.
+
+RED source: frozen actual R3 preflight + frozen tokenizer and manifest, in a new isolated R4 worktree. No paid provider calls, no new trajectories, no product or runner edits before RED. After implementation, rerun same case and check the full final wire plus parent ledger guard; keep old R3 failure and cost records separate.

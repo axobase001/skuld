@@ -1,0 +1,123 @@
+diff --git a/experiments/cp24/meta_batch.py b/experiments/cp24/meta_batch.py
+index 41d1d88..6d4dff5 100644
+--- a/experiments/cp24/meta_batch.py
++++ b/experiments/cp24/meta_batch.py
+@@ -2,21 +2,21 @@
+ import sys,json,subprocess,argparse,os
+ from pathlib import Path
+ HERE=Path(__file__).resolve().parent
+-OUT=Path('/content/skuld_meta_validation_20261104/runs')
++OUT=Path('/content/skuld_meta_validation_20261104_r2/runs')
+ 
+ def run_child(seed,resume=False,restart_at_day=None):
+-    cmd=[sys.executable,str(HERE/'meta_runner.py'),'--seed',str(seed),'--phase','CONFIRM']
++    cmd=[sys.executable,str(HERE/'meta_runner.py'),'--seed',str(seed),'--phase','CONFIRM_R2']
+     if resume:cmd.append('--resume')
+     if restart_at_day:cmd.extend(['--restart-at-day',str(restart_at_day)])
+     p=subprocess.Popen(cmd,cwd=HERE.parents[1]);print('AGENT_PROCESS',p.pid,'RESUME',resume,flush=True)
+     code=p.wait();print('AGENT_EXIT',p.pid,code,flush=True)
+     if code:raise RuntimeError('AGENT_PROCESS_FAILED:'+str(code))
+-    score=json.loads((OUT/f'META_CONFIRM_S-EVO_seed{seed}'/'score.json').read_text())
++    score=json.loads((OUT/f'META_CONFIRM_R2_S-EVO_seed{seed}'/'score.json').read_text())
+     return p.pid,score
+ 
+ def main(seed):
+     if seed not in (240101,240102):raise RuntimeError('SEED_NOT_FROZEN')
+-    dest=OUT/f'META_CONFIRM_S-EVO_seed{seed}'
++    dest=OUT/f'META_CONFIRM_R2_S-EVO_seed{seed}'
+     if dest.exists():raise RuntimeError('LIFE_ALREADY_STARTED')
+     first_pid,first=run_child(seed,restart_at_day=10 if seed==240101 else None)
+     if seed==240101 and first['harness_outcome']=='planned_process_restart':
+@@ -28,7 +28,7 @@ def main(seed):
+         if after['new_agent_pid']!=second_pid or not after['execution_prefix_matched']:
+             raise RuntimeError('RESTART_PREFIX_VERIFICATION_FAILED')
+     else:last=first;second_pid=None
+-    status={'seed':seed,'phase':'CONFIRM','first_agent_pid':first_pid,'resumed_agent_pid':second_pid,
++    status={'seed':seed,'phase':'CONFIRM_R2','first_agent_pid':first_pid,'resumed_agent_pid':second_pid,
+         'finalized':last['finalized'],'harness_outcome':last['harness_outcome'],
+         'requests':last['requests'],'official':last['official']}
+     path=dest/'batch_status.json';path.write_text(json.dumps(status,ensure_ascii=False,indent=2))
+diff --git a/experiments/cp24/meta_runner.py b/experiments/cp24/meta_runner.py
+index cff341c..04dbf0e 100644
+--- a/experiments/cp24/meta_runner.py
++++ b/experiments/cp24/meta_runner.py
+@@ -10,8 +10,8 @@ from skuld.app.runtime import Runtime
+ from skuld.loop.tool_subject import attach,state
+ from skuld.sim.providers import COMMON
+ 
+-LOCAL_BASE=Path('/content/skuld_meta_validation_20261104/runs')
+-DRIVE_BASE=Path('<PRIVATE_DRIVE_ARCHIVE>/SKULD_META_COLAB_VALIDATION_20261104')
++LOCAL_BASE=Path('/content/skuld_meta_validation_20261104_r2/runs')
++DRIVE_BASE=Path('<PRIVATE_DRIVE_ARCHIVE>/SKULD_META_COLAB_VALIDATION_20261104_R2')
+ SOURCE_IMPORT_REFERENCE='077315dae516e01bb1e3f54528eac23c6ee22d62'
+ 
+ def write_json(p,obj):
+@@ -70,8 +70,8 @@ def config():
+         'reasoningbank_guidance':cp24.reasoningbank_guidance()}
+ 
+ def run(seed,phase,resume=False,turn_cap=None,restart_at_day=None):
+-    if phase not in ('E2E','E2E_R2','E2E_R3','CONFIRM') or seed not in (240101,240102):raise RuntimeError('RUN_ID_NOT_ALLOWED')
+-    if phase=='CONFIRM' and turn_cap is not None:raise RuntimeError('CONFIRM_TURN_CAP_FORBIDDEN')
++    if phase not in ('E2E','E2E_R2','E2E_R3','CONFIRM','CONFIRM_R2') or seed not in (240101,240102):raise RuntimeError('RUN_ID_NOT_ALLOWED')
++    if phase in ('CONFIRM','CONFIRM_R2') and turn_cap is not None:raise RuntimeError('CONFIRM_TURN_CAP_FORBIDDEN')
+     if not os.path.ismount('/content/drive') or not DRIVE_BASE.parent.is_dir():raise RuntimeError('DRIVE_NOT_MOUNTED')
+     cp24.check_public_dependencies()
+     if subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip():raise RuntimeError('META_SOURCE_DIRTY')
+@@ -91,7 +91,7 @@ def run(seed,phase,resume=False,turn_cap=None,restart_at_day=None):
+     if resume:
+         logical[0]=state(rt,u).get('turn',0)
+         before=json.loads((dest/'restart_before.json').read_text()) if (dest/'restart_before.json').exists() else None
+-        if before and (before['user_id']!=u or before['execution_ids']!=[n.node_id for n in rt.nodes(u,'ToolExecution')]):
++        if before and (before['user_id']!=u or [n.node_id for n in rt.nodes(u,'ToolExecution')][:len(before['execution_ids'])]!=before['execution_ids']):
+             raise RuntimeError('RESTART_IDENTITY_OR_EFFECT_PREFIX_MISMATCH')
+         write_json(dest/'restart_after.json',{'new_agent_pid':os.getpid(),'user_id':u,
+             'inherited_turn':logical[0],'environment_day':transport.last_day,
+@@ -116,6 +116,7 @@ def run(seed,phase,resume=False,turn_cap=None,restart_at_day=None):
+             except Exception as exc:
+                 errors.append({'turn':turn,'day':transport.last_day,'type':type(exc).__name__,'message':str(exc)[:1000]})
+                 consecutive+=1;write_json(dest/'errors.json',errors)
++                if str(exc)=='BUDGET_CALL_LIMIT':outcome='model_call_budget_exhausted';break
+                 if budget.block or type(exc).__name__=='BudgetStop' or 'STATE_BINDING_ERROR' in str(exc):
+                     outcome='model_or_runtime_guard';break
+                 if consecutive>=5:outcome='consecutive_runtime_errors';break
+@@ -130,7 +131,7 @@ def run(seed,phase,resume=False,turn_cap=None,restart_at_day=None):
+                 checkpoint(dest,transport.last_day,rt,u,transport,'DAILY_SAFE_BOUNDARY');last_cp_day=transport.last_day
+             print('PROGRESS',name,'day',transport.last_day,'turn',turn,'calls',budget.used.get(name,0),flush=True)
+             if stalled>=5:outcome='no_public_tool_progress';break
+-            if restart_at_day and transport.last_day>=restart_at_day and phase=='CONFIRM' and not resume:
++            if restart_at_day and transport.last_day>=restart_at_day and phase in ('CONFIRM','CONFIRM_R2') and not resume:
+                 write_json(dest/'restart_before.json',{'old_agent_pid':os.getpid(),'user_id':u,'day':transport.last_day,
+                     'turn':state(rt,u).get('turn'),'execution_ids':[n.node_id for n in executions],
+                     'at_utc':datetime.now(timezone.utc).isoformat()})
+@@ -149,6 +150,6 @@ def run(seed,phase,resume=False,turn_cap=None,restart_at_day=None):
+ 
+ if __name__=='__main__':
+     a=argparse.ArgumentParser()
+-    a.add_argument('--seed',type=int,required=True);a.add_argument('--phase',choices=['E2E','E2E_R2','E2E_R3','CONFIRM'],required=True)
++    a.add_argument('--seed',type=int,required=True);a.add_argument('--phase',choices=['E2E','E2E_R2','E2E_R3','CONFIRM','CONFIRM_R2'],required=True)
+     a.add_argument('--resume',action='store_true');a.add_argument('--turn-cap',type=int);a.add_argument('--restart-at-day',type=int)
+     args=a.parse_args();run(args.seed,args.phase,args.resume,args.turn_cap,args.restart_at_day)
+diff --git a/experiments/cp24/meta_transport.py b/experiments/cp24/meta_transport.py
+index 5ee5849..b4a8df0 100644
+--- a/experiments/cp24/meta_transport.py
++++ b/experiments/cp24/meta_transport.py
+@@ -12,7 +12,7 @@ MODEL_REVISION='cec94fcfd6512f2cfe708138c32533b346ea4f69'
+ SERVICE_URL='http://127.0.0.1:30000/v1/chat/completions'
+ INPUT_LIMIT=65536
+ OUTPUT_LIMIT=8192
+-LIFE_CALL_LIMIT=180
++LIFE_CALL_LIMIT=240
+ 
+ def utc(): return datetime.now(timezone.utc).isoformat()
+ 
+@@ -47,7 +47,9 @@ class LocalMetaTransport:
+             wire['response_format']={'type':'json_schema','json_schema':{'name':'CP24Decision','schema':schema,'strict':True}}
+             wire['temperature']=1.0; wire['top_p']=0.95
+             wire['messages'][0]['content']='Reasoning strength: low. '+wire['messages'][0]['content']
+-            n=len(self.tokenizer.apply_chat_template(wire['messages'],tokenize=True,add_generation_prompt=True))
++            encoded=self.tokenizer.apply_chat_template(wire['messages'],tokenize=True,add_generation_prompt=True)
++            ids=encoded['input_ids'] if hasattr(encoded,'keys') else encoded
++            n=len(ids[0]) if ids and isinstance(ids[0],list) else len(ids)
+             if n>INPUT_LIMIT or n+int(wire['max_tokens'])>131072:
+                 self.block='META_INPUT_CONTEXT_LIMIT'; raise RuntimeError(self.block)
+             if int(wire['max_tokens'])>OUTPUT_LIMIT: raise RuntimeError('META_OUTPUT_LIMIT')

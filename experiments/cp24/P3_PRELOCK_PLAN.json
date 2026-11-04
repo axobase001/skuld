@@ -1,0 +1,121 @@
+{
+  "kind": "CP24_P3_PRELOCK_PLAN_NOT_AUTHORIZED",
+  "phase": "CONFIRM",
+  "public_environment_commit": "f9a1d7efde193de2242ed5afb1f3a326e362c75d",
+  "reasoningbank_source_commit": "ed80611788292ea739f1effd31f16c53823b8a0d",
+  "model_alias": "deepseek-flash",
+  "returned_model_required": "deepseek-flash",
+  "model_snapshot_limitation": "Server snapshot behind alias not fixed by provider",
+  "core_order": [
+    {
+      "seed": 240101,
+      "arms": [
+        "S-EVO",
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB"
+      ]
+    },
+    {
+      "seed": 240102,
+      "arms": [
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB",
+        "S-EVO"
+      ]
+    },
+    {
+      "seed": 240103,
+      "arms": [
+        "S-NOEVO",
+        "B-RB",
+        "S-EVO",
+        "S-FRESH"
+      ]
+    },
+    {
+      "seed": 240104,
+      "arms": [
+        "B-RB",
+        "S-EVO",
+        "S-FRESH",
+        "S-NOEVO"
+      ]
+    },
+    {
+      "seed": 240105,
+      "arms": [
+        "S-EVO",
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB"
+      ]
+    },
+    {
+      "seed": 240106,
+      "arms": [
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB",
+        "S-EVO"
+      ]
+    },
+    {
+      "seed": 240107,
+      "arms": [
+        "S-NOEVO",
+        "B-RB",
+        "S-EVO",
+        "S-FRESH"
+      ]
+    },
+    {
+      "seed": 240108,
+      "arms": [
+        "B-RB",
+        "S-EVO",
+        "S-FRESH",
+        "S-NOEVO"
+      ]
+    },
+    {
+      "seed": 240109,
+      "arms": [
+        "S-EVO",
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB"
+      ]
+    },
+    {
+      "seed": 240110,
+      "arms": [
+        "S-FRESH",
+        "S-NOEVO",
+        "B-RB",
+        "S-EVO"
+      ]
+    }
+  ],
+  "frontier_slots": {
+    "F1": "NOT_RUN_NO_AUTHORIZED_PROVIDER_KEY",
+    "F2": "NOT_RUN_NO_AUTHORIZED_PROVIDER_KEY"
+  },
+  "resource_profile": {
+    "public_tools": 22,
+    "model_requests_per_life_max": 180,
+    "input_tokens_max": 256000,
+    "output_tokens_max": 256000,
+    "source": "Direct user CP24 token-limit amendment; same limits for all runnable arms"
+  },
+  "old_cumulative_after_r5": 10280,
+  "old_authorized_cap": 10364,
+  "old_remaining_calls": 84,
+  "core_max_new_requests": 7200,
+  "core_required_new_cumulative_cap": 17480,
+  "core_estimated_cny_from_development": 125,
+  "suggested_core_fee_guard_cny": 150,
+  "budget_status": "NEEDS_EXPLICIT_MATRIX_AUTHORIZATION_AND_API_BALANCE",
+  "do_not_launch": true
+}

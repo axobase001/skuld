@@ -1,0 +1,22 @@
+# CP24 R4 development batch: final result
+
+The two locked seeds both favored S-EVO over S-FRESH on official 30-day reward: seed 1 by EUR 198.40 (6.82%) and seed 2 by EUR 330.50 (13.64%). The equal-seed mean relative difference was 10.23%. This is a descriptive development result, not an identified causal benefit of evolutionary hypotheses. S-EVO published no candidate in seed 1. In seed 2 it published and exposed one, but the model did not cite it and the recorded action effect remained NOT_IDENTIFIED. B-RB seed 2 stopped at day 6, so only seed 1 is a complete three-arm comparison.
+
+| Seed | Arm | Official status | Reward EUR | Requests | Observed tokens | Estimated fee CNY | Candidates born / published / visible DECIDE requests / self-citing responses |
+| --- | --- | --- | ---: | ---: | ---: | ---: | --- |
+| 1 | S-EVO | COMPLETE | 3106.77 | 134 | 2,970,317 | 2.97341384 | 8 / 0 / 0 / 1* |
+| 1 | S-FRESH | COMPLETE | 2908.37 | 126 | 2,671,733 | 2.70644052 | 10 / 2 / 3 / 0 |
+| 1 | B-RB | COMPLETE | 2443.97 | 143 | 3,290,279 | 3.31064728 | 0 / 0 / 0 / 0 |
+| 2 | S-EVO | COMPLETE | 2753.04 | 123 | 2,832,427 | 2.83266744 | 10 / 1 / 24 / 0 |
+| 2 | S-FRESH | COMPLETE | 2422.54 | 148 | 3,171,783 | 3.12059136 | 9 / 1 / 23 / 2 |
+| 2 | B-RB | INCOMPLETE at day 6 | 0.00 | 37 | 585,473 | 0.56071984 | 0 / 0 / 0 / 0 |
+
+* A self-cited candidate ID without publication is not adoption of a selected evolutionary rule. B-RB seed 2 has finalized=false and completed=false. Its interim final_balance of EUR 1101.00 is not a 30-day score. The harness recorded no_public_tool_progress after five stalled rounds, with budget_block=null and errors=[]. This record does not isolate whether model behavior or the execution interface caused the stall.
+
+Mechanism trace: S-EVO seed 2 candidate businesscandidate_13166f813a53934000efedee50c21bef78e8fcaa was born from day-12 SEC toolsec_2403468c5b9efdd20dd6f077e83501fa7c7db43f. It received 21 valid postbirth paired scores and was first published on day 15. Raw calls.jsonl line/index 552 is a RETURNED day-27 PUBLIC_TOOL_DECIDE request. Its retrieved_experience_models[0] contains the PUBLISHED rule; @r13 resolves to this candidate in that same request. The real model proposed eight restock_machine actions. ToolDecision tooldecision_f057fc245cceed35afb43000c9ea0e2f89a17c7b records input_exposed including the candidate, model_cited.candidate_ids=[], and causal_effect=NOT_IDENTIFIED; six associated ToolExecution records succeeded. Across days 22-30, nine of 31 ToolDecision records exposed that candidate, none cited it, and none recorded executed_dependency. Five later candidates were born in that interval; all remained PENDING at day 30. Publication and actual input exposure are established; model adoption, changed action, and business benefit are not identified.
+
+Frozen product commit: 21e47ecf52633261c42d9f60f97f8b1a0e8da0d1. Public environment commit: f9a1d7efde193de2242ed5afb1f3a326e362c75d. ReasoningBank source commit: ed80611788292ea739f1effd31f16c53823b8a0d. Returned model: deepseek-flash. Input and output caps: 256,000 tokens each. Locked order: seed 1 S-EVO/S-FRESH/B-RB, seed 2 B-RB/S-EVO/S-FRESH. Per-life request cap: 180. R4 inherited 904 requests remaining from the recovery batch, with an internal fee guard of CNY 19.2485636; the guard is not a new cumulative user grant. The R4 incremental ledger has 711/711 RETURNED calls, 15,522,012 observed tokens, and CNY 15.50448028 estimated cost. Prior P1/R1/R2 spending is separate; provider billing may settle later.
+
+Primary evidence: each life score.json and world_consistent.db; raw requests, responses, usage, and per-call fee in /content/cp24_dev_r4/calls.jsonl; read-only extraction in /content/cp24_review/CP24_R4_RESULT_EXTRACT_FINAL.json. The old S-EVO seed-2 INCOMPLETE archive remains separate pre-resume evidence. The newer COMPLETE archive supplies the final score; scores are not spliced across versions. The final aggregate index has all_expected_complete=false because B-RB seed 2 is incomplete. Earlier CP24 results remain separate.
+
+Post-settlement account check (external to the frozen ZIP): at 2026-11-01 11:29:46 UTC, more than 15 minutes after the last call at 11:14:20 UTC, the official DeepSeek balance was CNY 22.33. Opening CNY 17.83 plus the user recharge of CNY 20.00 minus closing CNY 22.33 gives about CNY 15.50 of actual spend at cent precision, consistent with the ledger estimate CNY 15.50448028. The raw check is CP24_R4_FINAL_BALANCE_AFTER_15MIN.json, uploaded alongside the three archive parts.

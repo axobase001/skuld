@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "independent real CP24 public MCP E2E, not a formal score",
+  "seed": 240101,
+  "model": "meta-models/Muse-Glimmer-30B",
+  "served_model": "muse-glimmer",
+  "five_http200_valid_json_schema_calls": true,
+  "public_tool_executions": 13,
+  "observed_tool_receipt_ids": [
+    "toolobservation_84c4da519a9a9d8ab0d05af8505e2b869dc770e3",
+    "toolobservation_456de7541c29d5efa9d2098e306139eb642e1dd4",
+    "toolobservation_69bcc4aefb90d2b7b1531039e2aad20e12d9b46f"
+  ],
+  "next_model_input_contains_prior_receipt": true,
+  "model_request_count": 5,
+  "runtime_errors": [],
+  "sqlite_quick_check": "ok",
+  "finalized": false,
+  "source_head": "884a6610c3859a903e4424bb519e18aed3b09466",
+  "failed_attempts": [
+    "META_E2E_S-EVO_seed240101: missing jinja2, zero model calls",
+    "META_E2E_R2_S-EVO_seed240101: 3 HTTP200, 2 public tool calls, 2 missing-fields schema failures"
+  ]
+}
