@@ -1,0 +1,18 @@
+{
+  "product": "Skuld · Arrival",
+  "release": "Hackathon Release 2026",
+  "event": "Meta Global AI Developer Hackathon",
+  "build_window": {
+    "start": "2026-10-26",
+    "end": "2026-11-04",
+    "calendar_days": 10
+  },
+  "build_scope": "Skuld · Arrival product, desktop integration, and validation built in 10 days",
+  "component_versions": {
+    "pi_sidecar_package": "0.1.0",
+    "v4_runtime_protocol": "skuld-runtime/5"
+  },
+  "terminal_model_route": "DeepSeek API through Pi Harness",
+  "meta_validation_route": "Meta Muse Glimmer 30B BF16 served locally through SGLang for a separate CP24 run",
+  "meta_result_classification": "modified_cap_day28_continuation"
+}

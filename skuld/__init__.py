@@ -1,1 +1,1 @@
-"""Skuld V4.0 unified subject runtime."""
+"""Skuld V4 subject runtime for Skuld · Arrival, Hackathon Release 2026."""

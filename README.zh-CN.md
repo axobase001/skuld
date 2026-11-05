@@ -1,6 +1,20 @@
-# Skuld · 降临
+# Skuld · Arrival / 降临
 
 [English](README.md) · **简体中文**
+
+## Built in 10 Days. Designed to Outlive a Conversation.
+
+**Hackathon Release 2026 · Meta Global AI Developer Hackathon · 2026 年 10 月 26 日—11 月 4 日** · [发布元信息](RELEASE.json)
+
+Skuld · Arrival 是这十天做出来的可运行桌面 Agent 产品：Skuld V4 的持续主体运行时和世界状态接入 Terminal，由 Skuld 决定是否委托 Pi 执行，真实工具结果作为证据回到同一个主体。可选的分批导入器将历史对话放入独立的证据通道；自托管 Meta Muse Glimmer 30B 验证则提供可检查的模型调用、工具回执、评分和重启证据。
+
+| 本次发布内容 | 可检查的实现与证据 |
+| --- | --- |
+| 持续主体与世界状态 | [V4 运行时](skuld/app/runtime.py)、[主体图谱](skuld/kernel/graph_store.py)和[架构说明](docs/ARCHITECTURE.zh-CN.md) |
+| 桌面交互 | [V4 Terminal](docs/TERMINAL.md)：中英文界面、会话恢复、本地账户隔离 |
+| 模型与工具 | [Skuld → Pi 接线](terminal_app/v4_wiring.py)：DeepSeek API 对话、权限约束的读取与新文件写入、结果回执 |
+| 历史上下文 | [可续的分批导入](terminal_app/import_claude_history.py)和有上限的[语义消化](terminal_app/seed_world_model.py) |
+| 本地模型验证 | [Meta Muse Glimmer 30B BF16](benchmarks/meta-glimmer-30b/README.md) 独立 Prosus Vending Bench 实验；第 28 天续跑条件有明确记录 |
 
 ![Skuld · 降临](docs/assets/arrival-cover.svg)
 
@@ -191,7 +205,7 @@ Read the consequences
 
 **Skuld Terminal** 让持续主体的运行过程变得可见。
 
-这里可以看到世界状态、来源与时间、未完事项、工具行动、回执，以及历史运行的隔离回放。我们希望每一项重要变化都能回答三个问题：
+当前界面展示持久主体与产品状态、责任、历史证据处理进度、工具结果和执行轨迹。我们希望每一项重要变化都能回答三个问题：
 
 **发生了什么？为什么这样判断？接下来准备做什么？**
 

@@ -1,4 +1,4 @@
-"""Run the V4-owned Pi Terminal. No old Mimir runtime is instantiated."""
+"""Launch the Skuld · Arrival Terminal with V4-owned state and Pi execution."""
 
 from __future__ import annotations
 
@@ -39,7 +39,7 @@ def main(argv=None):
     credential = load_deepseek_key(repository) if args.credential_from_env else None
     terminal = V4Terminal(root, workspace, credential, args.profile)
     app = QGuiApplication(sys.argv[:1])
-    app.setApplicationName("Skuld V4 Terminal")
+    app.setApplicationName("Skuld · Arrival")
     app.aboutToQuit.connect(terminal.close)
     bridge = TerminalBridge(terminal)
     engine = QQmlApplicationEngine()

@@ -1,10 +1,12 @@
-# Architecture · Skuld V4 × Pi
+# Architecture · Skuld · Arrival
 
 [Home](../README.md) · **English** · [简体中文](ARCHITECTURE.zh-CN.md)
 
 ![Skuld V4 and Pi architecture](assets/v4-pi-architecture.svg)
 
 Skuld is the persistent subject runtime. It holds the state that survives a model call, makes the decision to delegate, checks the local authority boundary, and incorporates the result. Pi is the execution layer for a model session or a guarded tool operation. The Terminal is the user's view into both.
+
+Skuld · Arrival is the **Hackathon Release 2026** product built during the Meta Global AI Developer Hackathon, October 26–November 4, 2026. Its Terminal model route is the DeepSeek API. The locally served Meta model appears in a separate benchmark, with its own manifest and receipts.
 
 ## The implemented path
 

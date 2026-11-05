@@ -11,7 +11,7 @@ ApplicationWindow {
     height: 900
     minimumWidth: 1000
     minimumHeight: 650
-    title: "SKULD V4 × Pi Terminal"
+    title: "Skuld · Arrival — V4 × Pi Terminal"
     color: Theme.canvas
     ColumnLayout {
         anchors.fill: parent

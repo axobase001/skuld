@@ -2,6 +2,20 @@
 
 **English** · [简体中文](README.zh-CN.md)
 
+## Built in 10 Days. Designed to Outlive a Conversation.
+
+**Hackathon Release 2026 · Meta Global AI Developer Hackathon · October 26–November 4, 2026** · [Release metadata](RELEASE.json)
+
+Skuld · Arrival is a working desktop agent built in ten days. It brings the Skuld V4 persistent subject runtime and world state into a Terminal, connects Skuld's decisions to a Pi execution harness, and returns tool results as evidence to the same continuing subject. An optional batch importer brings historical conversations into a separate evidence lane. A self-hosted Meta Muse Glimmer 30B validation provides inspectable model calls, tool receipts, scoring, and restart evidence.
+
+| In the hackathon release | What you can inspect |
+| --- | --- |
+| Persistent subject and world state | [V4 runtime](skuld/app/runtime.py), [subject graph](skuld/kernel/graph_store.py), and [architecture](docs/ARCHITECTURE.md) |
+| Desktop interaction | [V4 Terminal](docs/TERMINAL.md) with English/Chinese UI, session recovery, and separate local profiles |
+| Model and tools | [Skuld → Pi integration](terminal_app/v4_wiring.py): DeepSeek API conversation, permission-gated workspace read and create-only write, and outcome receipts |
+| Historical context | [Resumable history importer](terminal_app/import_claude_history.py) and bounded [semantic digestion](terminal_app/seed_world_model.py) |
+| Local-model validation | [Meta Muse Glimmer 30B BF16 run](benchmarks/meta-glimmer-30b/README.md), a separate Prosus Vending Bench experiment with a documented day-28 continuation |
+
 ![Skuld · Arrival](docs/assets/arrival-cover.svg)
 
 ### ARRIVAL
@@ -106,7 +120,7 @@ The run reached the original 180-call limit on day 28. It resumed from the verif
 
 ## V. The Terminal Is a Window, Not the World
 
-**Skuld Terminal** makes a persistent subject visible. It shows world state, sources and time, unfinished matters, tool actions, receipts, and isolated historical replay. Each important change should answer three questions: **What happened? Why does this judgment follow? What happens next?**
+**Skuld Terminal** makes a persistent subject visible. Its current UI shows the persisted subject and product state, responsibilities, historical-evidence progress, tool outcomes, and execution trace. Each important change should answer three questions: **What happened? Why does this judgment follow? What happens next?**
 
 The Terminal is a place to return to, understand what happened while you were away, and remain in control. Skuld needs authority to act, evidence to revise, and clear boundaries to earn trust.
 

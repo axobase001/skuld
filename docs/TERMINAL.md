@@ -1,6 +1,8 @@
-# Skuld V4 × Pi Terminal
+# Skuld · Arrival — V4 × Pi Terminal
 
 [Home](../README.md) · [简体中文](../README.zh-CN.md)
+
+**Hackathon Release 2026 · Meta Global AI Developer Hackathon · October 26–November 4, 2026.** [Release metadata](../RELEASE.json).
 
 This repository contains the V4 subject runtime, a Pi SDK sidecar, and the desktop Terminal. Skuld owns persistent state, decisions, approval, and feedback. Pi carries out the model turn or a guarded tool operation and returns receipts. The Terminal displays persisted state and actual execution results.
 
@@ -25,6 +27,8 @@ $env:DEEPSEEK_API_KEY = '<your key for this shell>'
 ```
 
 The launcher reads the key from the current shell or a Windows DPAPI credential at `.skuld-terminal-secrets/deepseek.dpapi`. It does not commit credentials. The default subject graph is created in `.terminal-runtime/world.db` on first run. The UI starts in **PAUSED**. Switch to **OBSERVE** for chat and `/read path`; **ACT** can propose `/write path | content`, followed by `/approve action_id` for that exact new file. Writes are create-only and use a time-limited capability. The interface starts in English; use the language control to switch to 简体中文.
+
+**Model routes:** The Terminal's Pi conversation route uses the **DeepSeek API**. The [Meta Muse Glimmer 30B BF16 validation](../benchmarks/meta-glimmer-30b/README.md) is a separate, self-hosted CP24 run served through SGLang, with its own 30-day score and evidence.
 
 ## Local profiles
 
@@ -57,7 +61,7 @@ Historical episodes stay distinct from present facts and authority. `-SeedWorld`
 ./start_terminal.ps1 -E2EAccounts
 ```
 
-The E2E checks cover a Pi read, a failed read returned to Skuld, OBSERVE write denial, exact ACT approval, a real create-only write, model conversation, and state recovery after restart. They create local evidence under ignored `.terminal-e2e*` directories. The model turn requires a configured credential.
+The E2E checks cover a Pi read, a failed read returned to Skuld, OBSERVE write denial, exact ACT approval, a real create-only write, model conversation, and state recovery after restart. They create local evidence under ignored `.terminal-e2e*` directories. The model turn requires a configured DeepSeek credential.
 
 ## Connection points
 

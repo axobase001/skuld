@@ -1,1 +1,1 @@
-"""Windows host package for SKULD Terminal."""
+"""Desktop Terminal for Skuld · Arrival, Hackathon Release 2026."""

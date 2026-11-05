@@ -1,10 +1,12 @@
-# 架构 · Skuld V4 × Pi
+# 架构 · Skuld · Arrival
 
 [首页](../README.zh-CN.md) · [English](ARCHITECTURE.md) · **简体中文**
 
 ![Skuld V4 与 Pi 架构](assets/v4-pi-architecture.svg)
 
 Skuld 是持续存在的主体运行时：保存跨模型调用的状态，决定何时委托执行，检查本地权限边界，并吸收执行结果。Pi 承担模型会话与受约束的工具执行。Terminal 展示两者的真实状态和过程。
+
+Skuld · Arrival 是在 2026 年 10 月 26 日—11 月 4 日 Meta Global AI Developer Hackathon 期间做出来的 **Hackathon Release 2026** 产品。Terminal 对话使用 DeepSeek API；本地部署的 Meta 模型属于独立 Benchmark，拥有自己的 manifest 与回执。
 
 ## 已接通的路径
 

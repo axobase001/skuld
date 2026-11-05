@@ -1,8 +1,10 @@
-# CP24 · experiment code and results
+# Skuld · Arrival | CP24 experiment code and results
 
 [Home](../../README.md) · [Meta Glimmer 30B validation](../meta-glimmer-30b/README.md)
 
 The [`experiments/cp24`](../../experiments/cp24/) directory contains the CP24 runner, matrix orchestration, contracts, and Meta local-model adapter. This directory contains the available public result data and frozen-identity excerpts from the paused P3 confirmation scope.
+
+These are historical experiment records included with Hackathon Release 2026. The separate [Meta Glimmer 30B run](../meta-glimmer-30b/README.md) used a locally served model; the desktop Terminal uses DeepSeek API for conversation.
 
 | Arm | Complete 30-day lives | Incomplete | Not started / not run |
 | --- | ---: | ---: | ---: |

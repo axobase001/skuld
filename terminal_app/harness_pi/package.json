@@ -1,6 +1,8 @@
 {
   "name": "@skuld/terminal-pi-harness",
   "version": "0.1.0",
+  "description": "Pi execution sidecar for Skuld · Arrival, Hackathon Release 2026",
+  "skuldRelease": "Hackathon Release 2026",
   "private": true,
   "type": "module",
   "engines": {

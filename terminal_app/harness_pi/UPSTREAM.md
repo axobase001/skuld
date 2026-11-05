@@ -17,5 +17,5 @@ maintainer among its npm maintainers. This namespace transition is explicit and
 must be re-audited on any future upgrade.
 
 Install and build automation must use `--ignore-scripts` during dependency
-materialization. Founder Alpha does not load global, project-local, remote or
-third-party Pi extensions.
+materialization. The Arrival sidecar does not load global, project-local,
+remote or third-party Pi extensions.
