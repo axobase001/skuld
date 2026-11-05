@@ -94,6 +94,20 @@ Skuld 所建造的，是可实现、可检验、可由人掌握的时间连续�
 
 但至少，智能不必每次醒来都失去昨日。
 
+### 连续性如何落到架构上
+
+![Skuld V4 与 Pi Terminal 架构](docs/assets/v4-pi-architecture.svg)
+
+当前桌面链路是具体的：Terminal 将输入交给 Skuld V4；Skuld 保有会话、持久主体状态和权限判断；Pi 执行模型调用或受约束的工具操作；结果与回执回到 Skuld，随后 UI 展示更新后的状态。V4 的同一存储承载有来源的证据与结果，跨重启延续。不同本地账户拥有独立的运行目录和工作区。
+
+用公开层面的记号，可以把连续性概括为：
+
+$$
+S_{t+1}=\mathcal{U}(S_t,E_t,O_t)
+$$
+
+$S_t$ 是已持久化的状态，$E_t$ 是新证据，$O_t$ 是实际结果。被派发的行动还需满足 $a_t\in\mathcal{A}(m_t,c_t,w_t)$，即处于当前模式、行动 capability 与工作区共同限定的许可集合中。这些式子解释模块关系，不代表核心学习机制的数值公式。详见[架构图与源码入口](docs/ARCHITECTURE.zh-CN.md)。
+
 ---
 
 ## 第三章：主动性，来自现实对预测的回答
@@ -220,6 +234,13 @@ Skuld 需要授权才能行动，需要证据才能修订，需要边界才能�
 **Time to live.**
 
 ---
+
+### 继续探索
+
+- [架构图、公开层面的公式与源码入口](docs/ARCHITECTURE.zh-CN.md)
+- [V4 × Pi Terminal 启动说明](docs/TERMINAL.md)
+- [Meta Muse Glimmer 30B 验证证据](benchmarks/meta-glimmer-30b/README.md)
+- [CP24 实验与阶段结果](benchmarks/cp24/README.md)
 
 *Not an AI you open. An AI that stays.*  
 *The session ends. The responsibility continues.*

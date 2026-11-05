@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 670" role="img" aria-labelledby="title desc">
+  <title id="title">Skuld V4 and Pi Terminal architecture</title>
+  <desc id="desc">User input enters the Terminal, then Skuld's persistent subject runtime and permission gate. Skuld delegates a model turn or guarded tool operation to Pi. Pi returns a result and receipt; Skuld records evidence and outcome in one persistent store before the Terminal displays the updated state.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M1 1 8 4.5 1 8" fill="none" stroke="#ae3830" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="return-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M1 1 8 4.5 1 8" fill="none" stroke="#6e6b70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="670" rx="22" fill="#faf6ef"/>
+  <text x="46" y="57" fill="#302d2b" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="600">A persistent subject with an execution layer</text>
+  <text x="47" y="88" fill="#776f69" font-family="Segoe UI,Arial,sans-serif" font-size="15">Skuld owns state and authority. Pi runs the model session and guarded operations.</text>
+
+  <g fill="#fffdfa" stroke="#d8cec3" stroke-width="2">
+    <rect x="38" y="133" width="218" height="339" rx="14"/>
+    <rect x="307" y="133" width="651" height="339" rx="14"/>
+    <rect x="1009" y="133" width="232" height="339" rx="14"/>
+    <rect x="307" y="528" width="651" height="104" rx="14"/>
+  </g>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="60" y="169" fill="#ae3830" font-size="15" font-weight="700" letter-spacing="1">TERMINAL UI</text>
+    <text x="60" y="214" fill="#302d2b" font-size="20">Chat &amp; workspace</text>
+    <text x="60" y="250" fill="#625e5b" font-size="16">Execution trace</text>
+    <text x="60" y="282" fill="#625e5b" font-size="16">Subject state</text>
+    <text x="60" y="314" fill="#625e5b" font-size="16">Mode: PAUSED</text>
+    <text x="60" y="341" fill="#625e5b" font-size="16">OBSERVE / ACT</text>
+    <text x="60" y="421" fill="#8b4c43" font-size="14">Visible, user-controlled</text>
+
+    <text x="330" y="169" fill="#ae3830" font-size="15" font-weight="700" letter-spacing="1">SKULD V4 · SUBJECT RUNTIME</text>
+    <text x="330" y="203" fill="#776f69" font-size="15">One continuing state across model calls and restarts</text>
+
+    <rect x="330" y="224" width="277" height="91" rx="10" fill="#f7f0e9" stroke="#e2d7cc"/>
+    <rect x="636" y="224" width="296" height="91" rx="10" fill="#f7f0e9" stroke="#e2d7cc"/>
+    <rect x="330" y="340" width="277" height="91" rx="10" fill="#f7f0e9" stroke="#e2d7cc"/>
+    <rect x="636" y="340" width="296" height="91" rx="10" fill="#f7f0e9" stroke="#e2d7cc"/>
+    <text x="348" y="257" fill="#302d2b" font-size="17" font-weight="600">Evidence &amp; provenance</text>
+    <text x="348" y="284" fill="#706a65" font-size="14">sources, observations, outcomes</text>
+    <text x="654" y="257" fill="#302d2b" font-size="17" font-weight="600">Subject state</text>
+    <text x="654" y="284" fill="#706a65" font-size="14">beliefs, goals, predictions</text>
+    <text x="348" y="373" fill="#302d2b" font-size="17" font-weight="600">Decision &amp; permission gate</text>
+    <text x="348" y="400" fill="#706a65" font-size="14">mode, target, approval, capability</text>
+    <text x="654" y="373" fill="#302d2b" font-size="17" font-weight="600">Feedback into state</text>
+    <text x="654" y="400" fill="#706a65" font-size="14">link result and receipt to action</text>
+
+    <text x="1031" y="169" fill="#ae3830" font-size="15" font-weight="700" letter-spacing="1">PI HARNESS</text>
+    <text x="1031" y="214" fill="#302d2b" font-size="19">Model session</text>
+    <text x="1031" y="263" fill="#302d2b" font-size="19">Guarded tools</text>
+    <text x="1031" y="310" fill="#625e5b" font-size="15">Read / create-only write</text>
+    <text x="1031" y="354" fill="#625e5b" font-size="15">Result + receipts</text>
+    <text x="1031" y="421" fill="#8b4c43" font-size="14">Execution, not authority</text>
+
+    <text x="330" y="560" fill="#ae3830" font-size="15" font-weight="700" letter-spacing="1">PERSISTENT STORE</text>
+    <text x="330" y="591" fill="#302d2b" font-size="18">Subject graph, session, evidence, and outcome in one V4 store</text>
+    <text x="330" y="614" fill="#776f69" font-size="14">Local profiles have separate runtime and workspace roots</text>
+  </g>
+  <g fill="none" stroke="#ae3830" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)">
+    <path d="M256 244H302"/>
+    <path d="M958 244h46"/>
+    <path d="M607 269h24"/>
+    <path d="M607 385h24"/>
+    <path d="M474 315v20"/>
+    <path d="M783 315v20"/>
+  </g>
+  <path d="M1125 472v27H783v-63" fill="none" stroke="#6e6b70" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#return-arrow)"/>
+  <path d="M632 472v51" fill="none" stroke="#6e6b70" stroke-width="2.5" stroke-linecap="round" marker-end="url(#return-arrow)"/>
+  <path d="M329 459H271v-54h-9" fill="none" stroke="#6e6b70" stroke-width="2.5" stroke-linecap="round" marker-end="url(#return-arrow)"/>
+  <g fill="#7b6d66" font-family="Segoe UI,Arial,sans-serif" font-size="13">
+    <text x="261" y="229">input</text>
+    <text x="960" y="229">plan</text>
+    <text x="1001" y="491">result + receipt</text>
+    <text x="83" y="499">updated view</text>
+  </g>
+</svg>

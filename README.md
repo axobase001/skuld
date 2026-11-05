@@ -54,6 +54,20 @@ Models can be upgraded or replaced. What we want to preserve is **one subject's 
 
 At least, intelligence need not wake up without yesterday.
 
+### The architecture behind continuity
+
+![Skuld V4 and Pi Terminal architecture](docs/assets/v4-pi-architecture.svg)
+
+The current desktop path is concrete: the Terminal sends input to Skuld V4; Skuld owns the session, persistent subject state, and permission decision; Pi runs the model turn or guarded tool operation; results and receipts return to Skuld before the UI displays the updated state. A single V4 store carries source-linked evidence and outcomes across restarts. Local profiles have separate runtime and workspace roots.
+
+At the interface level, continuity can be sketched as:
+
+$$
+S_{t+1}=\mathcal{U}(S_t,E_t,O_t)
+$$
+
+$S_t$ is persisted state, $E_t$ new evidence, and $O_t$ the observed outcome. A dispatched action must also satisfy $a_t\in\mathcal{A}(m_t,c_t,w_t)$: the permitted set defined by the current mode, action capability, and workspace. These are explanatory relationships rather than the core's numerical learning rules. See the [architecture and implementation map](docs/ARCHITECTURE.md).
+
 ---
 
 ## III. Agency Begins When Reality Answers
@@ -116,6 +130,7 @@ This is what we mean by time: one experience reaching another, one decision answ
 
 ### Explore
 
+- [Architecture diagram, public notation, and implementation map](docs/ARCHITECTURE.md)
 - [Run the V4 × Pi Terminal](docs/TERMINAL.md)
 - [Meta Muse Glimmer 30B: code, data, and evidence](benchmarks/meta-glimmer-30b/README.md)
 - [CP24: experiment code and result matrix](benchmarks/cp24/README.md)
